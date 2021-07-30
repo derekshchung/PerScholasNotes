@@ -1,0 +1,42 @@
+install john application:
+sudo apt install john
+apt show john
+
+cd /etc/apt
+cat sources.list
+
+install nmap and alien appliction:
+cd ~/Desktop/
+wget https://nmap.org/dlist/nmap-7.91-1.x86_64.rpm
+sudo apt install alien
+sudo alien -d nmap-7.91-1.x86_64.rpm
+sudo apt install ./nmap_7.91-2_amd64.deb
+
+add two user and add password for test john (make the password easy for test, such as cat, dog):
+sudo useradd -m bob
+sudo useradd -m tim
+sudo passwd bob
+sudo passwd tim
+
+
+
+check john already installed:
+apt list --installed john
+
+update the database after install all apps(for search):
+sudo updatedb
+
+see the password name for search:
+sudo find / -name password.lst -type f
+/usr/share/john
+cat password.lst
+
+use unshadow commond to combines two file:
+man unshadow
+sudo cat /etc/passwd
+sudo cat /etc/shadow
+sudo unshadow /etc/passwd etc/shadow > hash.txt
+
+use john to search:
+john hash.txt
+john --show hash.txt
